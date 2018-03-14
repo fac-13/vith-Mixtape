@@ -27,5 +27,35 @@ test("Testing giphyDummy is imported", function(t) {
 
 
 // Music code
-
-// musicFunctions.[function name]
+test("Testing musicDummy is imported", function(t) {
+    if (typeof musicDummy === "object"){
+        t.pass("musicDummy is imported and an object");
+    }
+    else{t.fail("musicDummy is not imported or not an object")};
+    t.end();
+});
+test("Testing selectMusic returns an array", function(t) {
+    var actual = logic.selectMusic(musicDummy);
+    if (Array.isArray(actual)){
+        t.pass("selectMusic returns an array");
+    }
+    else{t.fail("selectMusic doesn't return an array")};
+    t.end();
+});
+test("Testing selectMusic returns array of objects", function(t) {
+    var actual = logic.selectMusic(musicDummy);
+    if (actual.every((x) => typeof x === 'object')){
+        t.pass("selectMusic returns an array of objects");
+    }
+    else{t.fail("selectMusic returned array does not contain objects")};
+    t.end();
+});
+test("Testing selectMusic returns no more than ten songs", function(t) {
+    var actual = logic.selectMusic(musicDummy);
+    console.log(actual.length);
+    if (actual.every((x) => typeof x === 'object')){
+        t.pass("selectMusic returns no more than ten songs");
+    }
+    else{t.fail("selectMusic returns more than 10 songs")};
+    t.end();
+});
