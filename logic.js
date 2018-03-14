@@ -2,7 +2,7 @@
 
 //   Add listener
 var logic = {
-    addListener: function(selector, eventName, input, callback) {
+    addListener: function(selector, eventName, callback) {
         document.querySelector(selector).addEventListener(eventName, callback);
     },
     
@@ -26,7 +26,11 @@ var logic = {
 
     // Giphy 
     selectGif: function(response) {
-        return response.data[0].images.original.url;;
+        // console.log(response.data[0].images.original.url);
+        // this function returns a string as shown with the above console.log
+        // !!NOT CONNECTING TO DOM.JS:24
+        return response.data[0].images.original.url;
+
     },
 
     // Music
