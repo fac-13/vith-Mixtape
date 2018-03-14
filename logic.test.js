@@ -25,15 +25,15 @@ test("Testing giphyDummy is an object", function(t) {
 });
 
 test("Testing giphyDummy has expected url", function(t) {
-    let actual = giphyDummy.data[0].images.original.url;
-    let expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
+    var actual = giphyDummy.data[0].images.original.url;
+    var expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
     t.deepEqual(actual, expected, "url should equal https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif")
     t.end();
 });
 
 test("Testing logic.selectGif returns expected url", function(t) {
-    let actual = logic.selectGif(giphyDummy);
-    let expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
+    var actual = logic.selectGif(giphyDummy);
+    var expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
     t.deepEqual(actual, expected, "url should equal https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif")
     t.end();
 });

@@ -3,7 +3,7 @@
 
 
 /* --- Music Dummy --- */
-const dummies = { 
+var dummies = { 
 musicDummy : 
 {
     "message": {

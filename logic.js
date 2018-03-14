@@ -1,7 +1,7 @@
 // -- DOM / REQUEST FUNCTIONS --
 
 //   Add listener
-const logic = {
+var logic = {
     addListener: function(selector, eventName, input, callback) {
         document.querySelector(selector).addEventListener(eventName, callback);
     },

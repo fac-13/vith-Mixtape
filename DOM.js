@@ -1,6 +1,6 @@
 (function () {
-  const giphyKey = config.giphyKey;
-  const musicKey = config.musicKey;
+  var giphyKey = config.giphyKey;
+  var musicKey = config.musicKey;
 
   var gifResult = ''; //this will have the URL of the gif 
   var musicResult = [];  // have object with the 10 titles and artist names
@@ -12,14 +12,15 @@
 
   logicFunctions.addListener('#js-submit', 'submit', function (event) {
     // Add in functions that generates the correct URL
-    playlistTitle = event.target[0].value;
+    var input = event.target[0].value;
+    playlistTitle = input;
     // use playlistTitle to adjust the URL to what needed
     // use API keys
-    var UrlGiphy = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" + giphyKey;
-    var UrlMusic = "" + musicKey;
+    var urlGiphy = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=" + giphyKey;
+    var urlMusic = "" + musicKey;
 
-    gifResult = logic.fetch(UrlGiphy, selectGif);
-    musicResult = logic.fetch(UrlGiphy, selectMusic);
+    gifResult = logic.fetch(urlGiphy, selectGif);
+    musicResult = logic.fetch(urlGiphy, selectMusic);
 
   })
 
