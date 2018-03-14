@@ -78,12 +78,3 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 	t.end();
 });
 
-// test("Testing selectMusic returns tracklist", function(t) {
-//     var actual = logic.selectMusic(musicDummy);
-//     console.log(actual.length);
-//     if (actual.every((x) => typeof x === 'object')){
-//         t.pass("selectMusic returns no more than ten songs");
-//     }
-//     else{t.fail("selectMusic returns more than 10 songs")};
-//     t.end();
-// });
