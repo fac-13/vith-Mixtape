@@ -78,3 +78,5 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 	t.end();
 });
 
+/// NOTE! MUSIC TESTS NEED A DEEP EQUALS - DEEP EQUAL EXPECTED DUMMY EXISTS IN DUMMY FILE ALREADY
+
