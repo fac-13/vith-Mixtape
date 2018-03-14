@@ -1,10 +1,22 @@
+/****RESET STYLE******/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  /* border:  1px solid black; */
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* DOM / REQUEST FUNCTIONS */
+
+/* DOM MANIPULATE FUNCTIONS */
+
 .gif {
   width:480px;
   height:264px;
 }
-/* DOM / REQUEST FUNCTIONS */
-
-
-
-
-/* DOM MANIPULATE FUNCTIONS */
