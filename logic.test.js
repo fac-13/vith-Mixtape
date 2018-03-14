@@ -1,6 +1,6 @@
-var test = require("tape");
-var logic = require("./logic");
-// var dummy = request("./logic.data.dummy");
+const test = require("tape");
+const logic = require("./logic");
+const dummy = require("./logic.data.dummy");
 
 test("Testing Tape is working", function(t) {
     t.equal(1, 1, "One should equal one");
