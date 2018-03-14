@@ -1,7 +1,7 @@
 // -- DOM / REQUEST FUNCTIONS --
 
 //   Add listener
-const logicFunctions = {
+var logic = {
     addListener: function(selector, eventName, input, callback) {
         document.querySelector(selector).addEventListener(eventName, callback);
     },
@@ -35,6 +35,19 @@ const logicFunctions = {
     // Music
 
     selectMusic: function(response) {
+       var result = [];
+       var allTracks = response.message.body.track_list;
+       allTracks.forEach(function(item) {
+           var trackItem = {
+               'artist': '',
+               'track': ''
+           };
+           trackItem.artist = item.track.artist_name;
+           trackItem.track = item.track.track_name;
+           return result.push(trackItem);
+        });
+
+       return result.slice(0, 10);
         // processes the response
         // takes in raw response
         // return an array of 10 objects or less
@@ -43,5 +56,5 @@ const logicFunctions = {
 }
 
 if (typeof module !== "undefined") {
-    module.exports = logicFunctions;
+    module.exports = logic;
 }

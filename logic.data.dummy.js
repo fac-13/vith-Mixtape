@@ -3,7 +3,7 @@
 
 
 /* --- Music Dummy --- */
-const dummies = { 
+var dummies = { 
 musicDummy : 
 {
     "message": {
@@ -14,6 +14,61 @@ musicDummy :
         },
         "body": {
             "track_list": [
+                {
+                    "track": {
+                        "track_id": 55918053,
+                        "track_mbid": "",
+                        "track_isrc": "",
+                        "track_spotify_id": "",
+                        "track_soundcloud_id": "",
+                        "track_xboxmusic_id": "",
+                        "track_name": "Colder As We Die",
+                        "track_name_translation_list": [],
+                        "track_rating": 1,
+                        "track_length": 214,
+                        "commontrack_id": 27310679,
+                        "instrumental": 0,
+                        "explicit": 0,
+                        "has_lyrics": 1,
+                        "has_lyrics_crowd": 0,
+                        "has_subtitles": 0,
+                        "has_richsync": 0,
+                        "num_favourite": 0,
+                        "lyrics_id": 12020238,
+                        "subtitle_id": 0,
+                        "album_id": 17349898,
+                        "album_name": "Dirty Filthy Rock Metal",
+                        "artist_id": 26583434,
+                        "artist_mbid": "67912fd7-4e7c-41dc-8db3-6753fdf7a35a",
+                        "artist_name": "Scarlet's Wake",
+                        "album_coverart_100x100": "http://s.mxmcdn.net/images-storage/albums/nocover.png",
+                        "album_coverart_350x350": "",
+                        "album_coverart_500x500": "",
+                        "album_coverart_800x800": "",
+                        "track_share_url": "https://www.musixmatch.com/lyrics/Scarlet-s-Wake/Colder-As-We-Die?utm_source=application&utm_campaign=api&utm_medium=FAC%3A1409617599793",
+                        "track_edit_url": "https://www.musixmatch.com/lyrics/Scarlet-s-Wake/Colder-As-We-Die/edit?utm_source=application&utm_campaign=api&utm_medium=FAC%3A1409617599793",
+                        "commontrack_vanity_id": "Scarlet-s-Wake/Colder-As-We-Die",
+                        "restricted": 0,
+                        "first_release_date": "2009-09-12T00:00:00Z",
+                        "updated_time": "2015-08-27T22:30:26Z",
+                        "primary_genres": {
+                            "music_genre_list": [
+                                {
+                                    "music_genre": {
+                                        "music_genre_id": 21,
+                                        "music_genre_parent_id": 34,
+                                        "music_genre_name": "Rock",
+                                        "music_genre_name_extended": "Rock",
+                                        "music_genre_vanity": "Rock"
+                                    }
+                                }
+                            ]
+                        },
+                        "secondary_genres": {
+                            "music_genre_list": []
+                        }
+                    }
+                },
                 {
                     "track": {
                         "track_id": 55918053,
