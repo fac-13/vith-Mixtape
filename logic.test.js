@@ -16,14 +16,34 @@ test('Testing Tape is working', function(t) {
 // -- API RESPONSE FUNCTIONS --
 
 // Giphy code
-test('Testing giphyDummy is imported', function(t) {
-	if (typeof giphyDummy === 'object') {
-		t.pass('giphyDummy is imported');
-	} else {
-		t.fail('giphyDummy is not imported');
-	}
-	t.end();
+test("Testing giphyDummy is an object", function(t) {
+    if (typeof giphyDummy === "object"){
+        t.pass("giphyDummy is an object");
+    }
+    else{t.fail("giphyDummy is not an object")};
+    t.end();
 });
+
+test("Testing giphyDummy has expected url", function(t) {
+    let actual = giphyDummy.data[0].images.original.url;
+    let expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
+    t.deepEqual(actual, expected, "url should equal https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif")
+    t.end();
+});
+
+test("Testing logic.selectGif returns expected url", function(t) {
+    let actual = logic.selectGif(giphyDummy);
+    let expected = "https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif";
+    t.deepEqual(actual, expected, "url should equal https://media2.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif")
+    t.end();
+});
+
+
+
+
+
+
+
 // giphyFunction.[function name]
 
 // Music code

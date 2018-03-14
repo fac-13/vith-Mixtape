@@ -26,10 +26,7 @@ var logic = {
 
     // Giphy 
     selectGif: function(response) {
-        // processes the response
-        // takes in raw response
-        // select Gif takes as an object, the response object
-        // return a URL string of one gif from the response object
+        return response.data[0].images.original.url;;
     },
 
     // Music
