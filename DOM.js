@@ -18,8 +18,8 @@
     var UrlGiphy = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" + giphyKey;
     var UrlMusic = "" + musicKey;
 
-    gifResult = logicFunctions.fetch(UrlGiphy, selectGif);
-    musicResult = logicFunctions.fetch(UrlGiphy, selectMusic);
+    gifResult = logic.fetch(UrlGiphy, selectGif);
+    musicResult = logic.fetch(UrlGiphy, selectMusic);
 
   })
 
