@@ -3,6 +3,7 @@
 .AppleDouble
 .LSOverride
 settings.json
+config.js
 
 # Logs
 logs

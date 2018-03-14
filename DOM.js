@@ -1,4 +1,7 @@
 (function () {
+  const giphyKey = config.giphyKey;
+  const musicKey = config.musicKey;
+
   var gifResult = ''; //this will have the URL of the gif 
   var musicResult = [];  // have object with the 10 titles and artist names
   var playlistTitle = '';
@@ -11,15 +14,14 @@
     // Add in functions that generates the correct URL
     playlistTitle = event.target[0].value;
     // use playlistTitle to adjust the URL to what needed
-    var UrlGiphy = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC";
-    var UrlMusic = "";
+    // use API keys
+    var UrlGiphy = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" + giphyKey;
+    var UrlMusic = "" + musicKey;
 
     gifResult = logicFunctions.fetch(UrlGiphy, selectGif);
     musicResult = logicFunctions.fetch(UrlGiphy, selectMusic);
 
   })
-
-
 
   // -- DOM MANIPULATE FUNCTIONS --
   // Use code to adjust the empty h2 with the playlist name using var playlistTitle

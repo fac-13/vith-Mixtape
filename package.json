@@ -1,0 +1,24 @@
+{
+  "name": "vith-mixtape",
+  "version": "1.0.0",
+  "description": "Mixtape generator!",
+  "main": "DOM.js",
+  "scripts": {
+    "test": "nyc tape logic.test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/vith-Mixtape.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/vith-Mixtape/issues"
+  },
+  "homepage": "https://github.com/fac-13/vith-Mixtape#readme",
+  "devDependencies": {
+    "nyc": "^11.6.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
+}
