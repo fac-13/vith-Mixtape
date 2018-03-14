@@ -3,7 +3,8 @@
 
 
 /* --- Music Dummy --- */
-const musicDummy =
+const dummies = { 
+musicDummy : 
 {
     "message": {
         "header": {
@@ -596,11 +597,11 @@ const musicDummy =
             ]
         }
     }
-};
+},
 
 
 /* ----- GIPHY dummy ------ */
-var giphyDummy = {
+giphyDummy : {
     "data":
     [
         {
@@ -818,10 +819,11 @@ var giphyDummy = {
         "msg": "OK",
         "response_id": "5aa932e0684c31674d7e2d36"
     }
- }
+ },
+
+}
 
 
  if (typeof module !== 'undefined') {
-    module.exports = giphyDummy;
-    module.exports = musicDummy;
+    module.exports = dummies;
   }
