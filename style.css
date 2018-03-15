@@ -3,7 +3,6 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  /* border:  1px solid red; */
 }
 
 .clearfix:after {
@@ -12,27 +11,36 @@
   clear: both;
 }
 
-/* SITE */
+/* LAYOUT */
 body {
   font-family: -apple-system, BlinkMacSystemFont,
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
     “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
     sans-serif;
-  background-color: hsl(200, 80%, 98%);
-  color: hsl(200, 80%, 15%)
+    
 }
 
-/* DOM / REQUEST FUNCTIONS */
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .is--hidden {
   display: none;
 }
 
-.mixtape__title {
-  text-transform: uppercase;
-  letter-spacing: .2rem;
-}
+/* STYLING */
 
+/* Form */
 .form__submit {
   width: 20%;
   margin-left: 40%;
@@ -47,6 +55,7 @@ body {
   font-size: .7rem;
   border: 1px solid hsl(200, 80%, 25%);
 }
+
 .form__submit:focus, .forms__input:focus {
   outline: 2px solid hsl(200, 80%, 70%);
 }
@@ -61,10 +70,38 @@ body {
   width: 60%;
   margin: 1.2rem 20%;
 }
+
 .forms__input::placeholder {
   font-size: .8rem;
   color: hsl(200, 80%, 20%);
 }
+
+/* Mixtape */
+.mixtape__header {
+  display: flex;
+  justify-content: center;
+}
+
+.mixtape__title {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.mixtape__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  background-color: hsl(200, 80%, 98%);
+  color: hsl(200, 80%, 15%)
+}
+
+.mixtape__img {
+  height: 30vh;
+  width: 30vh;
+  object-fit: cover;
+}
+
 .mixtape__trackTitle {
   font-weight: 700;
   font-size: 1.2rem;
@@ -80,11 +117,4 @@ body {
   padding-bottom: .5rem;
   text-indent: -1.2em;
   padding-left: 2rem;
-}
-
-/* DOM MANIPULATE FUNCTIONS */
-
-.gif {
-  width:480px;
-  height:264px;
 }
