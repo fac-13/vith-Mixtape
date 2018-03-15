@@ -3,7 +3,6 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  /* border:  1px solid red; */
 }
 
 .clearfix:after {
@@ -12,7 +11,7 @@
   clear: both;
 }
 
-/* SITE */
+/* LAYOUT */
 body {
   font-family: -apple-system, BlinkMacSystemFont,
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
@@ -22,7 +21,19 @@ body {
   color:   hsl(200, 80%, 98%);
 }
 
-/* DOM / REQUEST FUNCTIONS */
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .is--hidden {
   display: none;
@@ -39,7 +50,7 @@ body {
   font-size: 2rem;
   position: relative;
 }
-.mixtape__title:before {
+/* .mixtape__title:before {
   margin-bottom: 3rem;
   position: absolute;
   display: block;
@@ -47,11 +58,12 @@ body {
   content: '';
   background-color: hsl(200, 80%, 80%);
   height: .1rem;
-}
+} */
 
+/* Form */
 .form__submit {
-  width: 20%;
-  margin-left: 40%;
+  /* min-width: 20%;
+  margin-left: 40%; */
   padding: .7rem 1.5rem;
   /* margin-top: -1rem; */
   background-color: hsl(200, 80%, 80%);
@@ -63,6 +75,7 @@ body {
   font-size: .7rem;
   border: 1px solid hsl(200, 80%, 25%);
 }
+
 .form__submit:focus, .forms__input:focus {
   outline: 2px solid hsl(200, 80%, 70%);
 }
@@ -78,13 +91,44 @@ body {
   padding: .5rem 1rem;
   line-height: 1rem;
   font-size: 2rem;
-  width: 60%;
-  margin: 1.2rem 20%;
+  margin: 1.2rem;
 }
+
 .forms__input::placeholder {
   font-size: .8rem;
   color: hsl(200, 80%, 20%);
 }
+
+/* Mixtape */
+.mixtape__header {
+  display: flex;
+  justify-content: center;
+}
+
+.mixtape__title {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.mixtape__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .mixtape__container {
+    flex-direction: row;
+  }
+}
+
+.mixtape__img {
+  height: 40vh;
+  width: 40vh;
+  object-fit: cover;
+}
+
 .mixtape__trackTitle {
   font-weight: 700;
   font-size: 1.2rem;
@@ -103,9 +147,8 @@ body {
   padding-left: 2rem;
 }
 
-/* DOM MANIPULATE FUNCTIONS */
-
-.gif {
-  width:480px;
-  height:264px;
+@media only screen and (min-width: 900px) {
+  .mixtape__listContainer {
+    max-width: 50%;
+  }
 }

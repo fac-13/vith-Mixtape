@@ -22,7 +22,6 @@
   <main class="main">
     <section class="main__form">
       <form class="form" id="js-submit">
-        <label class="form__label">Enter your playlist theme:</label>
         <input class="forms__input" type="text" value="" placeholder="Type playlist theme here"></input>
         <button class="form__submit" type="submit">Submit</button>
       </form>
@@ -31,13 +30,15 @@
         <div class="mixtape__header">
           <h2 class="mixtape__title" id="js-playlist-name">Playlist Name</h2>
         </div>
-        <div class="mixtape__imgContainer">
-          <figure>
-            <img id="js-gif" class="mixtape__img is--hidden" src="" alt="your gif" />
-          </figure>
-        </div>
-        <div class="mixtape__listContainer">
-          <ol class="mixtape__list" id="js-tracklist"></ol>
+        <div class="mixtape__container">
+          <div class="mixtape__imgContainer">
+            <figure>
+              <img id="js-gif" class="mixtape__img is--hidden" src="" alt="your gif" />
+            </figure>
+          </div>
+          <div class="mixtape__listContainer">
+            <ol class="mixtape__list" id="js-tracklist"></ol>
+          </div>
         </div>
     </section>
     
