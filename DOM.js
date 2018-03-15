@@ -15,8 +15,11 @@
 	logic.addListener('#js-submit', 'submit', function(event) {
 		event.preventDefault();
 
-		mixTapeContainer.classList.add('is--hidden'); // hides the old result before replacing with new query result
-		var input = event.target[0].value; // use input to adjust the URL for search query
+		// SHOULD ADD A FORM INPUT RESET HERE TO CLEAR THE FORM FIELD !! - TO DO 
+
+		loadState = 'empty'; // reset the state
+		mixTapeContainer.classList.add('is--hidden'); // hides previously displayed result
+		var input = event.target[0].value; // user input to adjust the URL for search query
 
 		// URLs and Data Fetching
 		var urlGiphy =
@@ -24,14 +27,13 @@
 		var urlMusic =
 			'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_lyrics=' + // uses cors-anywhere proxy to prevent CORS errors
 			input +
-			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=asc&s_track_rating=asc&quorum_factor=1&page_size=20&apikey=' +
+			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=asc&s_track_rating=asc&quorum_factor=1&page_size=100&apikey=' + // changed to 100 results 
 			musicKey; 
-			
+
 		//TITLE
 		playlistTitle = input;
 
 		//GIF
-		loadState = 'empty';
 		logic.fetch(urlGiphy, logic.selectGif, assignGif);
 
 		//MUSIC
@@ -40,8 +42,7 @@
 	});
 
 	// -- DOM MANIPULATE FUNCTIONS --
-	// Use code to adjust the empty h2 with the playlist name using var playlistTitle
-
+	
 	// Use gifResult to manipulate DOM
 	function assignGif(gif) {
 		gifResult = gif;
@@ -49,7 +50,7 @@
 			loadState = 'gifOnly';
 		} else if (loadState === 'musicOnly') {
 			loadState = 'done';
-			displayAll(playlistTitle);
+			displayAll();
 		}
 	}
 
@@ -60,14 +61,12 @@
 			loadState = 'musicOnly';
 		} else if (loadState === 'gifOnly') {
 			loadState = 'done';
-			displayAll(playlistTitle);
+			displayAll();
 		}
 	}
 
-	function displayAll(title) {
-		// dsplays title
-		var titleDiv = document.querySelector('#js-title');
-		document.querySelector('#js-title');
+	function displayAll() {
+		// dsplays playlist title
 		var mixTapeTitle = document.querySelector('#js-playlist-name');
 		mixTapeTitle.textContent = playlistTitle;
 
@@ -81,7 +80,6 @@
 		while (tracklist.firstChild) {
 			tracklist.removeChild(tracklist.firstChild); // refreshes tracklist for repeadted searches
 		}
-
 		musicResult.forEach(function(trackObj) {
 			var track = document.createElement('li');
 
@@ -97,9 +95,9 @@
 
 			tracklist.appendChild(track);
 		});
+
 		// displays ALL
 		mixTapeContainer.classList.remove('is--hidden');
 	}
-	//STRETCH GOAL!!!!!!!
-	// Once DOM manipulated: reset (on page reload)??
+
 })();
