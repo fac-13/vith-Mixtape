@@ -3,7 +3,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  /* border:  1px solid black; */
+  /* border:  1px solid red; */
 }
 
 .clearfix:after {
@@ -18,12 +18,68 @@ body {
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
     “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
     sans-serif;
+  background-color: hsl(200, 80%, 98%);
+  color: hsl(200, 80%, 15%)
 }
 
 /* DOM / REQUEST FUNCTIONS */
 
 .is--hidden {
   display: none;
+}
+
+.mixtape__title {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.form__submit {
+  width: 20%;
+  margin-left: 40%;
+  padding: .7rem 1.5rem;
+  /* margin-top: -1rem; */
+  background-color: hsl(200, 80%, 20%);
+  color: hsl(200, 80%, 98%);
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: .7rem;
+  border: 1px solid hsl(200, 80%, 25%);
+}
+.form__submit:focus, .forms__input:focus {
+  outline: 2px solid hsl(200, 80%, 70%);
+}
+
+.forms__input {
+  color: hsl(200, 80%, 20%);
+  background-color: hsl(200, 80%, 98%);
+  border: 1px solid hsl(200, 80%, 25%);
+  padding: .5rem 1rem;
+  line-height: 1rem;
+  font-size: 2rem;
+  width: 60%;
+  margin: 1.2rem 20%;
+}
+.forms__input::placeholder {
+  font-size: .8rem;
+  color: hsl(200, 80%, 20%);
+}
+.mixtape__trackTitle {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.mixtape__trackArtist {
+  font-style: italic;
+  font-size: .9rem;
+  padding-left: 1rem;
+}
+
+.mixtape__list li {
+  padding-bottom: .5rem;
+  text-indent: -1.2em;
+  padding-left: 2rem;
 }
 
 /* DOM MANIPULATE FUNCTIONS */
