@@ -7,7 +7,7 @@
 	var musicResult = []; // have object with the 10 titles and artist names
 
 	// -- DOM / REQUEST FUNCTIONS --
-
+	document.querySelector('.forms__input').focus();
 	logic.addListener('#js-submit', 'submit', function(event) {
 		event.preventDefault();
 		var input = event.target[0].value; // use input to adjust the URL to what needed
@@ -59,10 +59,12 @@
 			var track = document.createElement('li');
 
 			var title = document.createElement('span');
+			title.classList.add('mixtape__trackTitle')
 			title.textContent = trackObj.track;
-			track.appendChild(title + ' - ');
+			track.appendChild(title);
 
 			var artist = document.createElement('span');
+			artist.classList.add('mixtape__trackArtist')
 			artist.textContent = trackObj.artist;
 			track.appendChild(artist);
 
