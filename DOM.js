@@ -42,7 +42,6 @@
 		gifResult = gif;
 		var img = document.querySelector('#js-gif');
 		img.src = gifResult;
-		img.classList.remove('main_hidden');
 	}
 
 	// Use musicResult to manipulate DOM
