@@ -7,13 +7,16 @@ var logic = {
     },
     
     //   Fetch requests
-    fetch: function(url, callback) {
+    fetch: function(url, callbackSelect, callbackRender) {
         var xhr = new XMLHttpRequest();
     
         xhr.addEventListener('load', function () {
-            if (xhr.status === 200) {
+            if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                return callback(response);
+                var result = callbackSelect(response);
+                callbackRender(result)
+            } else {
+                console.log("XHR error", xhr.readyState)
             }
         });
     
@@ -28,7 +31,6 @@ var logic = {
     selectGif: function(response) {
         // console.log(response.data[0].images.original.url);
         // this function returns a string as shown with the above console.log
-        // !!NOT CONNECTING TO DOM.JS:24
         return response.data[0].images.original.url;
 
     },
