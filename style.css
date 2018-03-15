@@ -17,7 +17,8 @@ body {
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
     “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
     sans-serif;
-    
+  background-color: hsl(200, 80%, 15%);
+  color:   hsl(200, 80%, 98%);
 }
 
 .header {
@@ -38,16 +39,35 @@ body {
   display: none;
 }
 
-/* STYLING */
+.header__title {
+  letter-spacing: .2rem;
+  text-decoration: underline;
+}
+
+.mixtape__title {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-size: 2rem;
+  position: relative;
+}
+/* .mixtape__title:before {
+  margin-bottom: 3rem;
+  position: absolute;
+  display: block;
+  width: 5rem;
+  content: '';
+  background-color: hsl(200, 80%, 80%);
+  height: .1rem;
+} */
 
 /* Form */
 .form__submit {
-  width: 20%;
-  margin-left: 40%;
+  /* min-width: 20%;
+  margin-left: 40%; */
   padding: .7rem 1.5rem;
   /* margin-top: -1rem; */
-  background-color: hsl(200, 80%, 20%);
-  color: hsl(200, 80%, 98%);
+  background-color: hsl(200, 80%, 80%);
+  color: hsl(200, 80%, 20%);
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
@@ -60,6 +80,10 @@ body {
   outline: 2px solid hsl(200, 80%, 70%);
 }
 
+.mixtape__img {
+  border: 1rem solid hsl(200, 80%, 90%);
+}
+
 .forms__input {
   color: hsl(200, 80%, 20%);
   background-color: hsl(200, 80%, 98%);
@@ -67,8 +91,7 @@ body {
   padding: .5rem 1rem;
   line-height: 1rem;
   font-size: 2rem;
-  width: 60%;
-  margin: 1.2rem 20%;
+  margin: 1.2rem;
 }
 
 .forms__input::placeholder {
@@ -89,22 +112,27 @@ body {
 
 .mixtape__container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  width: auto;
-  background-color: hsl(200, 80%, 98%);
-  color: hsl(200, 80%, 15%)
+  align-items: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .mixtape__container {
+    flex-direction: row;
+  }
 }
 
 .mixtape__img {
-  height: 30vh;
-  width: 30vh;
+  height: 40vh;
+  width: 40vh;
   object-fit: cover;
 }
 
 .mixtape__trackTitle {
   font-weight: 700;
   font-size: 1.2rem;
+  letter-spacing: .05rem;
 }
 
 .mixtape__trackArtist {
@@ -117,4 +145,10 @@ body {
   padding-bottom: .5rem;
   text-indent: -1.2em;
   padding-left: 2rem;
+}
+
+@media only screen and (min-width: 900px) {
+  .mixtape__listContainer {
+    max-width: 50%;
+  }
 }
