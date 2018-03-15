@@ -18,8 +18,8 @@ body {
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
     “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
     sans-serif;
-  background-color: hsl(200, 80%, 98%);
-  color: hsl(200, 80%, 15%)
+  background-color: hsl(200, 80%, 15%);
+  color:   hsl(200, 80%, 98%);
 }
 
 /* DOM / REQUEST FUNCTIONS */
@@ -28,9 +28,25 @@ body {
   display: none;
 }
 
+.header__title {
+  letter-spacing: .2rem;
+  text-decoration: underline;
+}
+
 .mixtape__title {
   text-transform: uppercase;
   letter-spacing: .2rem;
+  font-size: 2rem;
+  position: relative;
+}
+.mixtape__title:before {
+  margin-bottom: 3rem;
+  position: absolute;
+  display: block;
+  width: 5rem;
+  content: '';
+  background-color: hsl(200, 80%, 80%);
+  height: .1rem;
 }
 
 .form__submit {
@@ -38,8 +54,8 @@ body {
   margin-left: 40%;
   padding: .7rem 1.5rem;
   /* margin-top: -1rem; */
-  background-color: hsl(200, 80%, 20%);
-  color: hsl(200, 80%, 98%);
+  background-color: hsl(200, 80%, 80%);
+  color: hsl(200, 80%, 20%);
   text-transform: uppercase;
   letter-spacing: .15rem;
   font-weight: 700;
@@ -49,6 +65,10 @@ body {
 }
 .form__submit:focus, .forms__input:focus {
   outline: 2px solid hsl(200, 80%, 70%);
+}
+
+.mixtape__img {
+  border: 1rem solid hsl(200, 80%, 90%);
 }
 
 .forms__input {
@@ -68,6 +88,7 @@ body {
 .mixtape__trackTitle {
   font-weight: 700;
   font-size: 1.2rem;
+  letter-spacing: .05rem;
 }
 
 .mixtape__trackArtist {
