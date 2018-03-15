@@ -2,24 +2,39 @@
   var giphyKey = config.giphyKey;
   var musicKey = config.musicKey;
 
+  var playlistTitle = '';
   var gifResult = ''; //this will have the URL of the gif 
   var musicResult = [];  // have object with the 10 titles and artist names
-  var playlistTitle = '';
 
   // -- DOM / REQUEST FUNCTIONS --
-
+ 
   // Ties in functions from logic into here
 
   logic.addListener('#js-submit', 'submit', function (event) {
-    // Add in functions that generates the correct URL
-    playlistTitle = event.target[0].value;
-    // use playlistTitle to adjust the URL to what needed
-    // use API keys
-    var UrlGiphy = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" + giphyKey;
-    var UrlMusic = "" + musicKey;
 
-    gifResult = logic.fetch(UrlGiphy, selectGif);
-    musicResult = logic.fetch(UrlGiphy, selectMusic);
+    event.preventDefault();
+    var input = event.target[0].value;
+    // use input to adjust the URL to what needed
+    // use API keys
+    
+    var urlGiphy = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=" + giphyKey;
+    // var urlMusic = "" + musicKey;
+
+    //TITLE
+    playlistTitle = input;
+
+    //GIF
+    gifResult = logic.fetch(urlGiphy, logic.selectGif);
+    // !THIS IS UNDEFINED
+    console.log(logic.fetch(urlGiphy, logic.selectGif));
+
+    // THIS WILL BE MOVED TO RENDER FUNC:
+    // var img = document.querySelector('.gif');
+    // img.src = gifResult;
+
+
+    // MUSIC
+    // musicResult = logic.fetch(urlGiphy, selectMusic);
 
   })
 
