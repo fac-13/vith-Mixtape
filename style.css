@@ -11,9 +11,7 @@
   clear: both;
 }
 
-/* SITE */
-
-
+/* LAYOUT */
 body {
   font-family: -apple-system, BlinkMacSystemFont,
     “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
@@ -21,6 +19,7 @@ body {
     sans-serif;
     
 }
+
 .header {
   display: flex;
   justify-content: center;
@@ -35,9 +34,57 @@ body {
   margin: 0 auto;
 }
 
+.is--hidden {
+  display: none;
+}
+
+/* STYLING */
+
+/* Form */
+.form__submit {
+  width: 20%;
+  margin-left: 40%;
+  padding: .7rem 1.5rem;
+  /* margin-top: -1rem; */
+  background-color: hsl(200, 80%, 20%);
+  color: hsl(200, 80%, 98%);
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: .7rem;
+  border: 1px solid hsl(200, 80%, 25%);
+}
+
+.form__submit:focus, .forms__input:focus {
+  outline: 2px solid hsl(200, 80%, 70%);
+}
+
+.forms__input {
+  color: hsl(200, 80%, 20%);
+  background-color: hsl(200, 80%, 98%);
+  border: 1px solid hsl(200, 80%, 25%);
+  padding: .5rem 1rem;
+  line-height: 1rem;
+  font-size: 2rem;
+  width: 60%;
+  margin: 1.2rem 20%;
+}
+
+.forms__input::placeholder {
+  font-size: .8rem;
+  color: hsl(200, 80%, 20%);
+}
+
+/* Mixtape */
 .mixtape__header {
   display: flex;
   justify-content: center;
+}
+
+.mixtape__title {
+  text-transform: uppercase;
+  letter-spacing: .2rem;
 }
 
 .mixtape__container {
@@ -45,6 +92,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   width: auto;
+  background-color: hsl(200, 80%, 98%);
+  color: hsl(200, 80%, 15%)
 }
 
 .mixtape__img {
@@ -53,16 +102,19 @@ body {
   object-fit: cover;
 }
 
-
-/* DOM / REQUEST FUNCTIONS */
-
-.is--hidden {
-  display: none;
+.mixtape__trackTitle {
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
-/* DOM MANIPULATE FUNCTIONS */
+.mixtape__trackArtist {
+  font-style: italic;
+  font-size: .9rem;
+  padding-left: 1rem;
+}
 
-.gif {
-  width:480px;
-  height:264px;
+.mixtape__list li {
+  padding-bottom: .5rem;
+  text-indent: -1.2em;
+  padding-left: 2rem;
 }
