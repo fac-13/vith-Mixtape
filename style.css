@@ -14,6 +14,10 @@
 
 /* DOM / REQUEST FUNCTIONS */
 
+.main_hidden {
+  display: none;
+}
+
 /* DOM MANIPULATE FUNCTIONS */
 
 .gif {
