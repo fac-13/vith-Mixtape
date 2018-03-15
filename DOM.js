@@ -60,7 +60,7 @@
 
 			var title = document.createElement('span');
 			title.textContent = trackObj.track;
-			track.appendChild(title);
+			track.appendChild(title + ' - ');
 
 			var artist = document.createElement('span');
 			artist.textContent = trackObj.artist;
