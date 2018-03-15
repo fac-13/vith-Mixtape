@@ -1,19 +1,23 @@
 // -- DOM / REQUEST FUNCTIONS --
 
-//   Add listener
 var logic = {
+
+    //   Add listener
     addListener: function(selector, eventName, callback) {
         document.querySelector(selector).addEventListener(eventName, callback);
     },
     
     //   Fetch requests
-    fetch: function(url, callback) {
+    fetch: function(url, callbackSelect, callbackRender) {
         var xhr = new XMLHttpRequest();
     
         xhr.addEventListener('load', function () {
-            if (xhr.status === 200) {
+            if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
-                return callback(response);
+                var result = callbackSelect(response);
+                callbackRender(result)
+            } else {
+                console.log("XHR error", xhr.readyState)
             }
         });
     
@@ -25,17 +29,15 @@ var logic = {
     // -- API RESPONSE FUNCTIONS --
 
     // Giphy 
+    
     selectGif: function(response) {
-        // console.log(response.data[0].images.original.url);
-        // this function returns a string as shown with the above console.log
-        // !!NOT CONNECTING TO DOM.JS:24
+        // this function returns a URL string
         return response.data[0].images.original.url;
-
     },
 
     // Music
 
-    selectMusic: function(response) { // takes in raw JSON response
+    selectMusic: function(response) { // takes in JSON response
        var result = [];
        var allTracks = response.message.body.track_list; 
 
