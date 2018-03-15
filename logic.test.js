@@ -103,11 +103,12 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 // Filtering tests
 
 test('Testing filterDuplicates - removes duplicate tracks', function(t) {
-	var actual = logic.selectMusic(musicDummyTwo);
+	var result = logic.selectMusic(musicDummyTwo);
+	var actual = logic.filterMusic(result);
+	console.log(actual);
 	var expected = musicExpectedDummyTwo;
-	t.deepEqual(actual, expected, "lookief" + expected)
+	t.deepEqual(actual, expected, "Should remove duplicates: " + actual)
     t.end();
 });
 
-/// NOTE! MUSIC TESTS NEED A DEEP EQUALS - DEEP EQUAL EXPECTED DUMMY EXISTS IN DUMMY FILE ALREADY
 
