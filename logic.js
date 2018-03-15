@@ -1,81 +1,97 @@
 // -- DOM / REQUEST FUNCTIONS --
 
 var logic = {
+  //   Add listener
+  addListener: function(selector, eventName, callback) {
+    document.querySelector(selector).addEventListener(eventName, callback);
+  },
 
-    //   Add listener
-    addListener: function(selector, eventName, callback) {
-        document.querySelector(selector).addEventListener(eventName, callback);
-    },
-    
-    //   Fetch requests
-    fetch: function(url, callbackSelect, callbackRender) {
-        var xhr = new XMLHttpRequest();
-    
-        xhr.addEventListener('load', function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                var result = callbackSelect(response);
-                callbackRender(result)
-            } else {
-                console.log("XHR error", xhr.readyState)
-            }
-        });
-    
-        xhr.open('GET', url);
-        xhr.send();
-    },
+  //   Fetch requests
+  fetch: function(url, callbackSelect, callbackRender) {
+    var xhr = new XMLHttpRequest();
 
+    xhr.addEventListener("load", function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        var result = callbackSelect(response);
+        callbackRender(result);
+      } else {
+        console.log("XHR error", xhr.readyState);
+      }
+    });
 
-    // -- API RESPONSE FUNCTIONS --
+    xhr.open("GET", url);
+    xhr.send();
+  },
 
-    // Giphy 
-    
-    selectGif: function(response) {
-        // this function returns a URL string
-        return response.data[0].images.original.url;
-    },
+  // -- API RESPONSE FUNCTIONS --
 
-    // Music
+  // Giphy
 
-    selectMusic: function(response) { // takes in JSON response
-       var result = [];
-       var allTracks = response.message.body.track_list; 
+  selectGif: function(response) {
+    // this function returns a URL string
+    return response.data[0].images.original.url;
+  },
 
-        // General note: will need to filter out bad tracks (ie Karaoke) from result list, possibly withing the .forEach callback below.
-         
-        // Note: can forEach be refactored with a .reduce callback to do a comparison and filter out repeated track names?? 
+  // Music
 
-       allTracks.forEach(function(item) { // loops thru JSON data tracklist, extracting artist/track infomation into new object item for results
-           var trackItem = {
-               'artist': '',
-               'track': ''
-           };
-           trackItem.artist = item.track.artist_name;
-           trackItem.track = item.track.track_name;
-           return result.push(trackItem); 
-        });
-        
+  selectMusic: function(response) {
+    // takes in JSON response
+    var result = [];
+    var allTracks = response.message.body.track_list;
 
-       return result.slice(0, 10); // return an array of 10 objects or less
-    },
+    // General note: will need to filter out bad tracks (ie Karaoke) from result list, possibly withing the .forEach callback below.
 
-    filterMusic: function(result){
-        var isDuplicate;
-        return result.map(function(item){
-            isDuplicate = false;
-            for (i = 0; i < result.length; i++) {
-                if (item.track === result[i].track){
-                    isDuplicate = true;
-                console.log('hi')                    
+    // Note: can forEach be refactored with a .reduce callback to do a comparison and filter out repeated track names??
+
+    allTracks.forEach(function(item) {
+      // loops thru JSON data tracklist, extracting artist/track infomation into new object item for results
+      var trackName = item.track.track_name;
+      if (
+        trackName
+          .toLowerCase()
+          .includes(
+            "karaoke" ||
+              "version" ||
+              "orchestral" ||
+              "acoustic" ||
+              "cover" ||
+              "copy" ||
+              "instrumental" ||
+              "acapella"
+          )
+      ) {
+        return;
+      } else {
+        var trackItem = {
+            artist: item.track.artist_name,
+            track: trackName
+        };
+        return result.push(trackItem);
+      }
+    });
+
+    return result; // return an array of 10 objects or less
+  },
+
+  filterMusic: function(array, key) {
+        var seen = [];
+      
+        var result =  array.filter(function (obj) {
+      
+            var val = obj[key].toLowerCase();
+            if (seen.indexOf(val) == -1) { 
+                seen.push(val);
+                return true;
+                } else {
+                return false;
                 }
-            }
-            if (!isDuplicate){
-                return item;
-            }
-        })
-    }
-}
+      
+        });
+        return result.slice(0, 10);
+      }
+      };
 
 if (typeof module !== "undefined") {
-    module.exports = logic;
+  module.exports = logic;
 }

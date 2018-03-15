@@ -5,6 +5,8 @@ var giphyDummy = dummies.giphyDummy;
 var musicDummy = dummies.musicDummy;
 var musicDummyTwo = dummies.musicDummyTwo;
 var musicExpectedDummyTwo = dummies.musicExpectedDummyTwo;
+var musicExpectedDummyKaraoke = dummies.musicDummyExpectedKaraoke;
+var musicExpectedDummyFilter = dummies.musicExpectedDummyTwoFilter;
 
 test('Testing Tape is working', function(t) {
 	t.equal(1, 1, 'One should equal one');
@@ -58,7 +60,7 @@ test('Testing musicDummy is imported', function(t) {
 	t.end();
 });
 test('Testing selectMusic returns an array', function(t) {
-	var actual = logic.selectMusic(musicDummy);
+	var actual = logic.selectMusic(musicDummy).slice(0, 10);
 	if (Array.isArray(actual)) {
 		t.pass('selectMusic returns an array');
 	} else {
@@ -67,7 +69,7 @@ test('Testing selectMusic returns an array', function(t) {
 	t.end();
 });
 test('Testing selectMusic returns array of objects', function(t) {
-	var actual = logic.selectMusic(musicDummy);
+	var actual = logic.selectMusic(musicDummy).slice(0, 10);
 	if (actual.every(x => typeof x === 'object')) {
 		t.pass('selectMusic returns an array of objects');
 	} else {
@@ -76,7 +78,7 @@ test('Testing selectMusic returns array of objects', function(t) {
 	t.end();
 });
 test('Testing selectMusic returns no more than ten songs', function(t) {
-	var actual = logic.selectMusic(musicDummy);
+	var actual = logic.selectMusic(musicDummy).slice(0, 10);
 	if (actual.length <= 10) {
 		t.pass('selectMusic returns no more than ten songs');
 	} else {
@@ -85,7 +87,7 @@ test('Testing selectMusic returns no more than ten songs', function(t) {
 	t.end();
 });
 test('Testing selectMusic - each object within array  has a length of 2', function(t) {
-	var actual = logic.selectMusic(musicDummy);
+	var actual = logic.selectMusic(musicDummy).slice(0, 10);
 	if (
 		actual.every(function(x) {
 			return Object.keys(x).length === 2;
@@ -101,14 +103,29 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 });
 
 // Filtering tests
-
-test('Testing filterDuplicates - removes duplicate tracks', function(t) {
-	var result = logic.selectMusic(musicDummyTwo);
-	var actual = logic.filterMusic(result);
-	console.log(actual);
-	var expected = musicExpectedDummyTwo;
-	t.deepEqual(actual, expected, "Should remove duplicates: " + actual)
+test('Testing filterForKaraoke - removes karaoke tracks', function(t) {
+	var actual = logic.selectMusic(musicDummyTwo).slice(0, 10);
+	var expected = musicExpectedDummyKaraoke;
+	t.deepEqual(actual, expected, "Should remove karaoke tracks but instead got: " + actual)
     t.end();
 });
+
+test('Testing filterForDuplicates - removes duplicate tracks', function(t) {
+	var result = logic.selectMusic(musicDummyTwo);
+	var actual = logic.filterMusic(result, "track");
+	var expected = musicExpectedDummyFilter;
+	t.deepEqual(actual, expected, "Should remove duplicate tracks but instead got: " + actual)
+    t.end();
+});
+
+
+// test('Testing filterDuplicates - removes duplicate tracks', function(t) {
+// 	var result = logic.selectMusic(musicDummyTwo);
+// 	var actual = logic.filterMusic(result);
+// 	console.log(actual);
+// 	var expected = musicExpectedDummyTwo;
+// 	t.deepEqual(actual, expected, "Should remove duplicates: " + actual)
+//     t.end();
+// });
 
 
