@@ -191,50 +191,6 @@ var dummies = {
       track: "Just Let It Go"
     }
   ],
-  musicDummyExpectedKaraoke: [
-    {
-      artist:
-        "Henry Olusegun Adeola Samuel, Katherine Jenkins, Nicholas Dodd & Prague Philharmonic Orchestra",
-      track: "Kiss From A Rose"
-    },
-    {
-      artist:
-        "Katherine Jenkins feat. Prague Philharmonic Orchestra & Nicholas Dodd",
-      track: "Kiss From a Rose"
-    },
-    {
-      artist: "Ashley Sofia",
-      track: "Crazy Heart"
-    },
-    {
-      artist: "Michael McGuire",
-      track: "Unfinished Portrait"
-    },
-    {
-      artist: "Becky Fox",
-      track: "La vien rose"
-    },
-    {
-      artist: "Louis Armstrong - Itinéraire d'un génie",
-      track: "La vie en rose 1950"
-    },
-    {
-      artist: "Wayside Connection",
-      track: "Just Let It Go"
-    },
-    {
-      artist: "Love, Jerks",
-      track: "Love, Jerks"
-    },
-    {
-      artist: "Sepp Hendrix",
-      track: "Kiss From A Rose - The Voice Van Vlaanderen 2016"
-    },
-    {
-      artist: "Daddy Rosa, I-Born, Sha-Cronz & United Kingdom",
-      track: "Ok Corral"
-    }
-  ],
   musicExpectedDummyTwoFilter: [
     {
       artist:
