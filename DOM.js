@@ -34,15 +34,28 @@
 	// Use gifResult to manipulate DOM
 	function displayGif(gif) {
 		gifResult = gif;
-		var img = document.querySelector('.gif');
+		var img = document.querySelector('#js-gif');
 		img.src = gifResult;
 	}
 
 	// Use musicResult to manipulate DOM
 	function displayMusic(music) {
 		musicResult = music;
-	}
+		var tracklist = document.querySelector('#js-tracklist');
+		musicResult.forEach(function(trackObj) {
+			var track = document.createElement('li');
+			
+			var title = document.createElement('span');
+			title.textContent =  trackObj.track;
+			track.appendChild(title);
 
+			var artist = document.createElement('span');
+			artist.textContent =  trackObj.artist;
+			track.appendChild(artist);
+
+			tracklist.appendChild(track);
+		})
+	};
   // Once DOM manipulated: reset (on page reload)??
   
 })();
