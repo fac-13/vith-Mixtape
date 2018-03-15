@@ -42,7 +42,7 @@
 		gifResult = gif;
 		var img = document.querySelector('#js-gif');
 		img.src = gifResult;
-		img.classList.remove('main_hidden');
+		img.classList.remove('is--hidden');
 	}
 
 	// Use musicResult to manipulate DOM
@@ -75,7 +75,7 @@
 		document.querySelector('#js-title');
 		var mixTapeTitle = document.querySelector('#js-playlist-name');
 		mixTapeTitle.textContent = playlistTitle;
-		titleDiv.classList.remove('main_hidden');
+		titleDiv.classList.remove('is--hidden');
 	}
 	//STRETCH GOAL!!!!!!!
 	// Once DOM manipulated: reset (on page reload)??
