@@ -8,14 +8,11 @@
 
 	// -- DOM / REQUEST FUNCTIONS --
 
-	// Ties in functions from logic into here
-
 	logic.addListener('#js-submit', 'submit', function(event) {
 		event.preventDefault();
-		var input = event.target[0].value;
-		// use input to adjust the URL to what needed
-		// use API keys
-
+		var input = event.target[0].value; // use input to adjust the URL to what needed
+    
+    // URLsuse API keys
 		var urlGiphy =
 			'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=' + giphyKey;
 		// var urlMusic = "" + musicKey;
@@ -27,7 +24,8 @@
 		logic.fetch(urlGiphy, logic.selectGif, displayGif);
 
 		//MUSIC
-		//logic.fetch(urlGiphy, logic.selectMusic, displayMusic);
+    //logic.fetch(urlMusic, logic.selectMusic, displayMusic);
+    
 	});
 
 	// -- DOM MANIPULATE FUNCTIONS --
@@ -38,14 +36,13 @@
 		gifResult = gif;
 		var img = document.querySelector('.gif');
 		img.src = gifResult;
-		console.log('cb gif:', gifResult);
 	}
 
 	// Use musicResult to manipulate DOM
 	function displayMusic(music) {
 		musicResult = music;
-		console.log('tracklist:', musicResult);
 	}
 
-	// Once DOM manipulated: reset (on page reload)??
+  // Once DOM manipulated: reset (on page reload)??
+  
 })();
