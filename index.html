@@ -14,25 +14,33 @@
 <body>
 
   <!-- DOM / REQUEST FUNCTIONS -->
-  <header>
-    <h1>Mixtape Generator</h1>
-    <form id="js-submit">
-      <label>Enter your playlist theme:</label>
-      <input type="text" value=""></input>
-      <button type="submit">Submit</button>
-    </form>
+  <header class="header">
+    <h1 class="header__title">Mixtape Generator</h1>
   </header>
 
   <!-- DOM MANIPULATE FUNCTIONS -->
-  <main>
-    <div id="js-title" class="main_hidden">
-      <h2>This is your generated playlist and CD cover:</h2>
-      <h3 id="js-playlist-name">Playlist Name</h3>
-    </div>
-    <figure>
-      <img id="js-gif" class="main_hidden" src="" alt="your gif" />
-    </figure>
-    <ol id="js-tracklist"></ol>
+  <main class="main">
+    <section class="main__form">
+      <form class="form" id="js-submit">
+        <label class="form__label">Enter your playlist theme:</label>
+        <input class="forms__input" type="text" value="" placeholder="Type playlist theme here"></input>
+        <button class="form__submit" type="submit">Submit</button>
+      </form>
+    </section>
+    <section class="main__mixtape is--hidden" id="js-title">
+        <div class="mixtape__header">
+          <h2 class="mixtape__title" id="js-playlist-name">Playlist Name</h2>
+        </div>
+        <div class="mixtape__imgContainer">
+          <figure>
+            <img id="js-gif" class="mixtape__img is--hidden" src="" alt="your gif" />
+          </figure>
+        </div>
+        <div class="mixtape__listContainer">
+          <ol class="mixtape__list" id="js-tracklist"></ol>
+        </div>
+    </section>
+    
   </main>
 
   <script src="./config.js" type="text/javascript"></script>

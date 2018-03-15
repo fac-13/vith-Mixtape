@@ -12,9 +12,17 @@
   clear: both;
 }
 
+/* SITE */
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,
+    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+}
+
 /* DOM / REQUEST FUNCTIONS */
 
-.main_hidden {
+.is--hidden {
   display: none;
 }
 
