@@ -54,7 +54,6 @@ var logic = {
            trackItem.track = item.track.track_name;
            return result.push(trackItem); 
         });
-
         
 
        return result.slice(0, 10); // return an array of 10 objects or less

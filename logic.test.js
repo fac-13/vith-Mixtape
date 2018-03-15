@@ -3,6 +3,8 @@ var logic = require('./logic');
 var dummies = require('./logic.data.dummy');
 var giphyDummy = dummies.giphyDummy;
 var musicDummy = dummies.musicDummy;
+var musicDummyTwo = dummies.musicDummyTwo;
+var musicExpectedDummyTwo = dummies.musicExpectedDummyTwo;
 
 test('Testing Tape is working', function(t) {
 	t.equal(1, 1, 'One should equal one');
@@ -96,6 +98,15 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 		);
 	}
 	t.end();
+});
+
+// Filtering tests
+
+test('Testing filterDuplicates - removes duplicate tracks', function(t) {
+	var actual = logic.selectMusic(musicDummyTwo);
+	var expected = musicExpectedDummyTwo;
+	t.deepEqual(actual, expected, "lookief" + expected)
+    t.end();
 });
 
 /// NOTE! MUSIC TESTS NEED A DEEP EQUALS - DEEP EQUAL EXPECTED DUMMY EXISTS IN DUMMY FILE ALREADY
