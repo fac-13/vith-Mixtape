@@ -3,6 +3,8 @@ var logic = require('./logic');
 var dummies = require('./logic.data.dummy');
 var giphyDummy = dummies.giphyDummy;
 var musicDummy = dummies.musicDummy;
+var musicDummyTwo = dummies.musicDummyTwo;
+var musicExpectedDummyTwo = dummies.musicExpectedDummyTwo;
 
 test('Testing Tape is working', function(t) {
 	t.equal(1, 1, 'One should equal one');
@@ -98,5 +100,15 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 	t.end();
 });
 
-/// NOTE! MUSIC TESTS NEED A DEEP EQUALS - DEEP EQUAL EXPECTED DUMMY EXISTS IN DUMMY FILE ALREADY
+// Filtering tests
+
+test('Testing filterDuplicates - removes duplicate tracks', function(t) {
+	var result = logic.selectMusic(musicDummyTwo);
+	var actual = logic.filterMusic(result);
+	console.log(actual);
+	var expected = musicExpectedDummyTwo;
+	t.deepEqual(actual, expected, "Should remove duplicates: " + actual)
+    t.end();
+});
+
 

@@ -54,10 +54,25 @@ var logic = {
            trackItem.track = item.track.track_name;
            return result.push(trackItem); 
         });
-
         
 
        return result.slice(0, 10); // return an array of 10 objects or less
+    },
+
+    filterMusic: function(result){
+        var isDuplicate;
+        return result.map(function(item){
+            isDuplicate = false;
+            for (i = 0; i < result.length; i++) {
+                if (item.track === result[i].track){
+                    isDuplicate = true;
+                console.log('hi')                    
+                }
+            }
+            if (!isDuplicate){
+                return item;
+            }
+        })
     }
 }
 
