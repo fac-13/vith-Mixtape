@@ -105,14 +105,13 @@ test('Testing selectMusic - each object within array  has a length of 2', functi
 // Filtering tests
 test('Testing filterForKaraoke - removes karaoke tracks', function(t) {
 	var actual = logic.selectMusic(musicDummyTwo).slice(0, 10);
-	var expected = musicExpectedDummyKaraoke;
+	var expected = musicExpectedDummyFilter;
 	t.deepEqual(actual, expected, "Should remove karaoke tracks but instead got: " + actual)
     t.end();
 });
 
 test('Testing filterForDuplicates - removes duplicate tracks', function(t) {
-	var result = logic.selectMusic(musicDummyTwo);
-	var actual = logic.filterMusic(result, "track");
+	var actual = logic.selectMusic(musicDummyTwo);
 	var expected = musicExpectedDummyFilter;
 	t.deepEqual(actual, expected, "Should remove duplicate tracks but instead got: " + actual)
     t.end();
