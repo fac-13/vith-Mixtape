@@ -43,28 +43,15 @@ var logic = {
 		allTracks.forEach(function(item) {
 			// loops thru JSON data tracklist, extracting artist/track infomation into new object item for results
 			var trackName = item.track.track_name;
-			if (
-				trackName
-					.toLowerCase()
-					.includes(
-						'karaoke' ||
-							'version' ||
-							'orchestral' ||
-							'acoustic' ||
-							'cover' ||
-							'copy' ||
-							'instrumental' ||
-							'acapella'
-					)
-			) {
+			if (trackName.toLowerCase().match(/karaoke|version|orchestral|acoustic|remaster|cover|copy|instrumental|acapella|in the style of|original/)) {
 				return;
-			} else {
+			  } else {
 				var trackItem = {
-					artist: item.track.artist_name,
-					track: trackName
-				};
+								  artist: item.track.artist_name,
+								  track: trackName
+							  };
 				return result.push(trackItem);
-			}
+			  }
 		});
 
     result = logic.filterMusic(result, 'track');

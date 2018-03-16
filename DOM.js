@@ -27,8 +27,8 @@
 		var urlMusic =
 			'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_lyrics=' + // uses cors-anywhere proxy to prevent CORS errors
 			input +
-			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=asc&s_track_rating=asc&quorum_factor=1&page_size=100&apikey=' + // changed to 100 results 
-			musicKey; 
+			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=desc&s_track_rating=desc&page_size=100&apikey=' +
+			musicKey; // uses cors-anywhere proxy to prevent CORS errors
 
 		//TITLE
 		playlistTitle = input;
