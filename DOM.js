@@ -8,14 +8,12 @@
 	var musicResult = []; // have object with the 10 titles and artist names
 	var mixTapeContainer = document.querySelector('.main__mixtape'); // onload is--hidden
 
-	document.querySelector('.forms__input').focus(); // gives immediate focus to the form
+	document.querySelector('.form__input').focus(); // gives immediate focus to the form
 
 	// -- DOM / REQUEST FUNCTIONS --
 
 	logic.addListener('#js-submit', 'submit', function(event) {
 		event.preventDefault();
-
-		// SHOULD ADD A FORM INPUT RESET HERE TO CLEAR THE FORM FIELD !! - TO DO 
 
 		loadState = 'empty'; // reset the state
 		mixTapeContainer.classList.add('is--hidden'); // hides previously displayed result
@@ -28,7 +26,7 @@
 			'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_lyrics=' + // uses cors-anywhere proxy to prevent CORS errors
 			input +
 			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=desc&s_track_rating=desc&page_size=100&apikey=' +
-			musicKey; // uses cors-anywhere proxy to prevent CORS errors
+			musicKey; 
 
 		//TITLE
 		playlistTitle = input;
@@ -73,7 +71,6 @@
 		// displays gif
 		var img = document.querySelector('#js-gif');
 		img.src = gifResult;
-		//img.classList.remove('is--hidden');
 
 		// displays music
 		var tracklist = document.querySelector('#js-tracklist');
@@ -97,6 +94,7 @@
 		});
 
 		// displays ALL
+		document.querySelector('.form').reset(); // resets search form input field
 		mixTapeContainer.classList.remove('is--hidden');
 	}
 
