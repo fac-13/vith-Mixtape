@@ -37,8 +37,11 @@ var logic = {
 				return true;
 			};
 		});
-		
-		return findSquare.images.original.url;
+		if(findSquare){
+			return findSquare.images.original.url;
+		} else {
+			return response.data[0].images.original.url;
+		}
 		
 	},
 
