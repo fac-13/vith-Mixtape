@@ -30,7 +30,16 @@ var logic = {
 
 	selectGif: function(response) {
 		// this function returns a URL string
-		return response.data[0].images.original.url;
+		var imageData = response.data;
+		// .find method search image data for square gif before returning.
+		var findSquare = imageData.find(function(item){
+			if(item.images.original.width === item.images.original.height){
+				return true;
+			};
+		});
+		
+		return findSquare.images.original.url;
+		
 	},
 
 	// Music
