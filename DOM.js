@@ -8,7 +8,7 @@
 	var musicResult = []; // have object with the 10 titles and artist names
 	var mixTapeContainer = document.querySelector('.main__mixtape'); // onload is--hidden
 
-	document.querySelector('.forms__input').focus(); // gives immediate focus to the form
+	document.querySelector('.form__input').focus(); // gives immediate focus to the form
 
 	// -- DOM / REQUEST FUNCTIONS --
 
@@ -82,6 +82,7 @@
 		}
 		musicResult.forEach(function(trackObj) {
 			var track = document.createElement('li');
+			track.classList.add('mixtape__track')
 
 			var title = document.createElement('span');
 			title.classList.add('mixtape__trackTitle');

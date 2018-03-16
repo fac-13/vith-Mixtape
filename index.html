@@ -15,18 +15,16 @@
 
   <header class="header">
     <h1 class="header__title">MixTape Generator</h1>
+    <section class="main__form">
+      <form class="form" id="js-submit">
+        <input aria-label="search" name="search" class="form__input" type="text" value="" placeholder="Type playlist theme here" required></input>
+        <button class="form__submit" type="submit">Submit</button>
+      </form>
+    </section>
   </header>
 
   <!-- DOM MANIPULATE FUNCTIONS -->
   <main class="main">
-
-    <section class="main__form">
-      <form class="form" id="js-submit">
-        <input class="forms__input" type="text" value="" placeholder="Type playlist theme here"></input>
-        <button class="form__submit" type="submit">Submit</button>
-      </form>
-    </section>
-
     <section class="main__mixtape is--hidden" id="js-title">
       <div class="mixtape__header">
         <h2 class="mixtape__title" id="js-playlist-name">Playlist Name</h2>
