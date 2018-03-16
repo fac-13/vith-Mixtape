@@ -30,7 +30,18 @@ var logic = {
 
   selectGif: function(response) {
     // this function returns a URL string
-    return response.data[0].images.original.url;
+    var imageData = response.data;
+    // .find method search image data for square gif before returning.
+    var findSquare = imageData.find(function(item) {
+      if (item.images.original.width === item.images.original.height) {
+        return true;
+      }
+    });
+    if (findSquare) {
+      return findSquare.images.original.url;
+    } else {
+      return response.data[0].images.original.url;
+    }
   },
 
   // Music
@@ -38,11 +49,11 @@ var logic = {
   selectMusic: function(response) {
     // takes in JSON response
     var result = [];
-    var allTracks = response.message.body.track_list;
+    var allTracksData = response.message.body.track_list;
 
-    allTracks.forEach(function(item) {
-      // loops thru JSON data tracklist, extracting artist/track infomation into new object item for results
-      var trackName = item.track.track_name;
+    allTracksData.forEach(function(itemData) {
+      // loops thru JSON data tracklist, extracting artist/track infomation into new object itemData for results
+      var trackName = itemData.track.track_name;
       if (
         trackName
           .toLowerCase()
@@ -52,11 +63,11 @@ var logic = {
       ) {
         return;
       } else {
-        var trackItem = {
-          artist: item.track.artist_name,
+        var trackSelected = {
+          artist: itemData.track.artist_name,
           track: trackName
         };
-        return result.push(trackItem);
+        return result.push(trackSelected);
       }
     });
 
