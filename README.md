@@ -33,7 +33,7 @@ We drew on the whiteboard to brainstorm our Software Architecture.
 ```
 config.js - api keys
 DOM.js - where DOM manipulation happens
-index.html - 
+index.html 
 logic.data.dummy.js 
 logic.js - function module - addListener, API fetch request, selectGif, selectMusic, filterMusic
 logic.test.js 
