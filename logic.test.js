@@ -109,15 +109,3 @@ test('Testing filter - removes karaoke and duplicate tracks', function(t) {
 	t.deepEqual(actual, expected, "Filters: removes karaoke and duplicate tracks")
     t.end();
 });
-
-
-// test('Testing filterDuplicates - removes duplicate tracks', function(t) {
-// 	var result = logic.selectMusic(musicDummyTwo);
-// 	var actual = logic.filterMusic(result);
-// 	console.log(actual);
-// 	var expected = musicExpectedDummyTwo;
-// 	t.deepEqual(actual, expected, "Should remove duplicates: " + actual)
-//     t.end();
-// });
-
-
