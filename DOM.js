@@ -1,101 +1,100 @@
 (function() {
-	var giphyKey = config.giphyKey;
-	var musicKey = config.musicKey;
+  var giphyKey = config.giphyKey;
+  var musicKey = config.musicKey;
 
-	var loadState = 'empty'; // gifOnly, musicOnly, done
-	var playlistTitle = '';
-	var gifResult = ''; //this will have the URL of the gif
-	var musicResult = []; // have object with the 10 titles and artist names
-	var mixTapeContainer = document.querySelector('.main__mixtape'); // onload is--hidden
+  var loadState = "empty"; // gifOnly, musicOnly, done
+  var playlistTitle = "";
+  var gifResult = ""; //this will have the URL of the gif
+  var musicResult = []; // have object with the 10 titles and artist names
+  var mixTapeContainer = document.querySelector(".main__mixtape"); // onload is--hidden
 
-	document.querySelector('.form__input').focus(); // gives immediate focus to the form
+  document.querySelector(".form__input").focus(); // gives immediate focus to the form
 
-	// -- DOM / REQUEST FUNCTIONS --
+  // -- DOM / REQUEST FUNCTIONS --
 
-	logic.addListener('#js-submit', 'submit', function(event) {
-		event.preventDefault();
+  logic.addListener("#js-submit", "submit", function(event) {
+    event.preventDefault();
 
-		loadState = 'empty'; // reset the state
-		mixTapeContainer.classList.add('is--hidden'); // hides previously displayed result
-		var input = event.target[0].value; // user input to adjust the URL for search query
+    loadState = "empty"; // reset the state
+    mixTapeContainer.classList.add("is--hidden"); // hides previously displayed result
+    var input = event.target[0].value; // user input to adjust the URL for search query
 
-		// URLs and Data Fetching
-		var urlGiphy =
-			'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=' + giphyKey;
-		var urlMusic =
-			'https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_lyrics=' + // uses cors-anywhere proxy to prevent CORS errors
-			input +
-			'&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=desc&s_track_rating=desc&page_size=100&apikey=' +
-			musicKey; 
+    // URLs and Data Fetching
+    var urlGiphy =
+      "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=" + giphyKey;
+    var urlMusic =
+      "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_lyrics=" + // uses cors-anywhere proxy to prevent CORS errors
+      input +
+      "&f_lyrics_language=en&f_has_lyrics=1&s_artist_rating=desc&s_track_rating=desc&page_size=100&apikey=" +
+      musicKey;
 
-		//TITLE
-		playlistTitle = input;
+    //TITLE
+    playlistTitle = input;
 
-		//GIF
-		logic.fetch(urlGiphy, logic.selectGif, assignGif);
+    //GIF
+    logic.fetch(urlGiphy, logic.selectGif, assignGif);
 
-		//MUSIC
-		logic.fetch(urlMusic, logic.selectMusic, assignMusic);
+    //MUSIC
+    logic.fetch(urlMusic, logic.selectMusic, assignMusic);
+  });
 
-	});
+  // -- DOM MANIPULATE FUNCTIONS --
 
-	// -- DOM MANIPULATE FUNCTIONS --
-	
-	// Use gifResult to manipulate DOM
-	function assignGif(gif) {
-		gifResult = gif;
-		if (loadState === 'empty') {
-			loadState = 'gifOnly';
-		} else if (loadState === 'musicOnly') {
-			loadState = 'done';
-			displayAll();
-		}
-	}
+  // Use gifResult to manipulate DOM
+  function assignGif(gif) {
+    gifResult = gif;
+    if (loadState === "empty") {
+      loadState = "gifOnly";
+    } else if (loadState === "musicOnly") {
+      loadState = "done";
+      displayAll();
+    }
+  }
 
-	// Use musicResult to manipulate DOM
-	function assignMusic(music) {
-		musicResult = music;
-		if (loadState === 'empty') {
-			loadState = 'musicOnly';
-		} else if (loadState === 'gifOnly') {
-			loadState = 'done';
-			displayAll();
-		}
-	}
+  // Use musicResult to manipulate DOM
+  function assignMusic(music) {
+    musicResult = music;
+    if (loadState === "empty") {
+      loadState = "musicOnly";
+    } else if (loadState === "gifOnly") {
+      loadState = "done";
+      displayAll();
+    }
+  }
 
-	function displayAll() {
-		// dsplays playlist title
-		var mixTapeTitle = document.querySelector('#js-playlist-name');
-		mixTapeTitle.textContent = playlistTitle;
+  function displayAll() {
+    // dsplays playlist title
+    var mixTapeTitle = document.querySelector("#js-playlist-name");
+    mixTapeTitle.textContent = playlistTitle;
 
-		// displays gif
-		var img = document.querySelector('#js-gif');
-		img.src = gifResult;
+    // displays gif
+    var img = document.querySelector("#js-gif");
+    img.src = gifResult;
 
-		// displays music
-		var tracklist = document.querySelector('#js-tracklist');
-		while (tracklist.firstChild) {
-			tracklist.removeChild(tracklist.firstChild); // refreshes tracklist for repeadted searches
-		}
-		musicResult.forEach(function(trackObj) {
-			var track = document.createElement('li');
+    // displays music
+    var tracklist = document.querySelector("#js-tracklist");
+    while (tracklist.firstChild) {
+      tracklist.removeChild(tracklist.firstChild); // refreshes tracklist for repeadted searches
+    }
+    musicResult.forEach(function(trackObj) {
+      var track = document.createElement("li");
+      track.classList.add("mixtape__track");
 
-			var title = document.createElement('span');
-			title.classList.add('mixtape__trackTitle');
-			title.textContent = trackObj.track;
-			track.appendChild(title);
+      var title = document.createElement("span");
+      title.classList.add("mixtape__trackTitle");
+      title.textContent = trackObj.track;
+      track.appendChild(title);
 
-			var artist = document.createElement('span');
-			artist.classList.add('mixtape__trackArtist');
-			artist.textContent = trackObj.artist;
-			track.appendChild(artist);
+      var artist = document.createElement("span");
+      artist.classList.add("mixtape__trackArtist");
+      artist.textContent = trackObj.artist;
+      track.appendChild(artist);
 
-			tracklist.appendChild(track);
-		});
+      tracklist.appendChild(track);
+    });
 
-		// displays ALL
-		document.querySelector('.form').reset(); // resets search form input field
-		mixTapeContainer.classList.remove('is--hidden');
-	}
-
+    // displays ALL
+    document.querySelector(".form").reset(); // resets search form input field
+    mixTapeContainer.classList.remove("is--hidden");
+  }
 })();
