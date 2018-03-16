@@ -4,6 +4,12 @@ Team VITH has made a mixtape generator for the mix generation 👏🎧
 Try it out [here](https://fac-13.github.io/vith-Mixtape/)
 Input a keyword or a phrase - and it will return a mixtape playlist containing a relevant Giphy (for your mixtape cover) and your playlist (the first ten or less songs with lyrics containing your keyword/phrase as deemed by [MusixMatch](https://www.musixmatch.com/)).
 
+- access our Repo: ```git clone https://github.com/fac-13/vith-Mixtape.git```
+- run tests: ```"test": "nyc tape logic.test.js | tap-spec"```
+
+## Stretch Goals 
+Add follow up API request that fulls the song lyrics of your playlist (with the matching lyrics highlighted). We turned this into a stretch goal as it would require a tracking pixel/script (?!) 
+
 ## What we've done
 * We used two APIs: [Giphy API](https://developers.giphy.com/) - for the most relevant gif based on the search - and the [MusixMatch API](https://www.musixmatch.com/) - for the relevant songs based on the search terms.
 
@@ -30,7 +36,7 @@ We swapped pairs. One pair then continued on the music API (attempting to filter
 After lunch we swapped pairs again. One pair finished the Music filtering and testing, whilst the other pair finished DOM.js and attempted to add a `render` function.
 
 ## What we did well
-- TDD, swapping pairs, software architecture, planning, skeleton code, explaining code to each other
+- TDD, swapping pairs, software architecture, planning, skeleton code, explaining code to each other, use the GitHub project board to track flow of issues.
 
 ## What we struggled with
 - `render` function, filtering duplicates, callbacks, cleaning up the API response data, not using ES6
