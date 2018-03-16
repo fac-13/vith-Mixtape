@@ -38,19 +38,19 @@ var logic = {
 	selectMusic: function(response) {
 		// takes in JSON response
 		var result = [];
-		var allTracks = response.message.body.track_list;
+		var allTracksData = response.message.body.track_list;
 
-		allTracks.forEach(function(item) {
-			// loops thru JSON data tracklist, extracting artist/track infomation into new object item for results
-			var trackName = item.track.track_name;
+		allTracksData.forEach(function(itemData) {
+			// loops thru JSON data tracklist, extracting artist/track infomation into new object itemData for results
+			var trackName = itemData.track.track_name;
 			if (trackName.toLowerCase().match(/karaoke|version|orchestral|acoustic|remaster|cover|copy|instrumental|acapella|in the style of|original/)) {
 				return;
 			  } else {
-				var trackItem = {
-								  artist: item.track.artist_name,
+				var trackSelected = {
+								  artist: itemData.track.artist_name,
 								  track: trackName
 							  };
-				return result.push(trackItem);
+				return result.push(trackSelected);
 			  }
 		});
 
