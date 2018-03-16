@@ -54,7 +54,9 @@ var logic = {
 							'cover' ||
 							'copy' ||
 							'instrumental' ||
-							'acapella'
+							'acapella' ||
+							'in the style of' ||
+							'original'
 					)
 			) {
 				return;
